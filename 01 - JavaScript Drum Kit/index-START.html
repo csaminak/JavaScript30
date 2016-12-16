@@ -67,7 +67,8 @@
   function playsound(e) {
     const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
     const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
-    if(!audio) return; //stop fn from running any further
+    if(!audio) return; //stops fn from running any further
+
     audio.currentTime = 0; //allows audio to rewind to the beginning
     audio.play(); //if audio element is playing, it will ignore the same event
     key.classList.add('playing');
@@ -83,10 +84,12 @@
     this.classList.remove('playing');
   }
 
-  const keys = document.querySelectorAll('.key'); //array of all keys w/class name of key
-  //b.c keys is an array, must attach transitionend eventlistener to each key
+  /*
+  * keys is an array of all keys w/the classname of 'key'; since keys is
+  * an array, a transitionend eventlistener must be attached to each key
+   */
+  const keys = document.querySelectorAll('.key');
   keys.forEach(key => key.addEventListener('transitionend', removeTransition));
-
   window.addEventListener('keydown', playsound);
 
 </script>
