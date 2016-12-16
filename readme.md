@@ -1,4 +1,4 @@
-### **My work for the Javascript 30 Day Vanilla JS Code Challenge**
+***My work for the Javascript 30 Day Vanilla JS Code Challenge***
 
 ![](https://javascript30.com/images/JS3-social-share.png)
 
