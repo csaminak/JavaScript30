@@ -47,6 +47,7 @@
     </div>
   </div>
 
+  <!-- Data attr: custom attr that stores data in a string format -->
   <audio data-key='65' src='sounds/clap.wav'></audio>
   <audio data-key='83' src='sounds/hihat.wav'></audio>
   <audio data-key='68' src='sounds/kick.wav'></audio>
@@ -59,7 +60,9 @@
 
 <script>
   window.addEventListener('keydown', function (e) {
-    console.log(e);
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+
+    console.log(audio);
   });
 </script>
 
