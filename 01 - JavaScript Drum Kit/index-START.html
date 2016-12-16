@@ -65,6 +65,7 @@
     if(!audio) return; //stop fn from running any further
     audio.currentTime = 0; //allows audio to rewind to the beginning
     audio.play(); //if audio element is playing, it will ignore the same event
+    key.classList.add('playing');
     console.log(audio);
     console.log(key);
   });
