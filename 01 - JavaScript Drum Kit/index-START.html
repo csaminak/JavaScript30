@@ -66,9 +66,17 @@
     audio.currentTime = 0; //allows audio to rewind to the beginning
     audio.play(); //if audio element is playing, it will ignore the same event
     key.classList.add('playing');
-    console.log(audio);
-    console.log(key);
   });
+
+  function removeTransition(e) {
+    if(e.propertyName !== 'transform') return; //skip if not a transform
+    this.classList.remove('playing');
+  }
+
+  const keys = document.querySelectorAll('.key'); //array of all keys w/class name of key
+  //b.c keys is an array, must attach transitionend eventlistener to each key
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+
 </script>
 
 
