@@ -61,10 +61,12 @@
 <script>
   window.addEventListener('keydown', function (e) {
     const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
     if(!audio) return; //stop fn from running any further
     audio.currentTime = 0; //allows audio to rewind to the beginning
-    audio.play(); //if audio element is already playing, it will ignore
-
+    audio.play(); //if audio element is playing, it will ignore the same event
+    console.log(audio);
+    console.log(key);
   });
 </script>
 
