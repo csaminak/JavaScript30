@@ -59,23 +59,35 @@
   <audio data-key='76' src='sounds/tink.wav'></audio>
 
 <script>
-  window.addEventListener('keydown', function (e) {
+  /**
+   * Plays a sound to the linked key that is pressed.
+   * @param  {Object}   e   the key that is pressed
+   * @return {Void}         exits function.
+   */
+  function playsound(e) {
     const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
     const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
     if(!audio) return; //stop fn from running any further
     audio.currentTime = 0; //allows audio to rewind to the beginning
     audio.play(); //if audio element is playing, it will ignore the same event
     key.classList.add('playing');
-  });
+  }
 
+  /**
+   * Ends any styling when a key pressed after the transition is over
+   * @param  {Object}   e   transition events
+   * @return {Void}         exits function
+   */
   function removeTransition(e) {
-    if(e.propertyName !== 'transform') return; //skip if not a transform
+    if(e.propertyName !== 'transform') return;
     this.classList.remove('playing');
   }
 
   const keys = document.querySelectorAll('.key'); //array of all keys w/class name of key
   //b.c keys is an array, must attach transitionend eventlistener to each key
   keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+
+  window.addEventListener('keydown', playsound);
 
 </script>
 
