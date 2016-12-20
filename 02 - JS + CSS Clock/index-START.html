@@ -65,12 +65,19 @@
       transform: rotate(90deg); /* Allows hands to start at 12 o'clock */
       transition: all 0.05s;
       transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+        /* Adds a tick like feature when hands move */
     }
 
   </style>
 
   <script>
 
+    function setDate() {
+      console.log('hi');
+    }
+
+    // will allow setDate fn to run every 1000ms/1s
+    setInterval(setDate, 1000);
 
   </script>
 </body>
