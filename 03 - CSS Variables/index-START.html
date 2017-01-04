@@ -68,10 +68,13 @@
     const inputs = document.querySelectorAll('.controls input');
 
     function handleUpdate() {
-      console.log(this.value);
+      const suffix = this.dataset.sizing  || ''; //or nothing so value is not left w/undefined
+      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+      //this.name is the input's name attribute which is linked to the variable in root
     }
 
     inputs.forEach(input => input.addEventListener('change', handleUpdate));
+    inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
 
   </script>
 
