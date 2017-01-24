@@ -16,7 +16,21 @@
     //allows canvas to resize to window height
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    
+    ctx.strokeStyle = '#BADA55'; //color
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round';
+
+    let isDrawing = false;
+
+    // where line starts and then later ends
+    let lastX = 0;
+    let lastY = 0;
+
+    function draw(e) {
+      console.log(e);
+    }
+
+    canvas.addEventListener('mousemove', draw);
 
   </script>
 
