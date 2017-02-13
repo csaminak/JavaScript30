@@ -111,14 +111,22 @@
 
     function handleCheck(e) {
       let inBetween = false;
-
-      if(e.shiftKey && this.checked) {
+      if (e.shiftKey && this.checked) { //if shift key and checkbox is "checked"
         checkboxes.forEach(checkbox => {
-          console.log(checkbox);
+          //go through each checkbox
+          if(checkbox === this || checkbox === lastChecked) {
+            //if the checkbox is the one that was clicked/checked,
+            //make everything in between those checked the opposite of their inBetween status
+            inBetween = !inBetween;
+            console.log('starting to check them inbetween');
+          }
+          if (inBetween) { //if inbetween is true
+            checkbox.checked = true; //make the checkbox, checked/true
+          }
         });
       }
 
-      lastChecked = this;
+      lastChecked = this; //this being the element that is cicked
     }
 
     checkboxes.forEach(checkbox => checkbox.addEventListener('click', handleCheck));
